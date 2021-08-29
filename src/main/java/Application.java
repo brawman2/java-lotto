@@ -1,15 +1,8 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
-import lotto.Lotto;
 import lotto.LottoGroup;
-import lotto.LottoNumber;
-import lotto.LottoNumbers;
-import lotto.LottoRank;
-import lotto.LottoReport;
 import lotto.LottoUtil;
 import ui.InputView;
 import ui.ResultView;

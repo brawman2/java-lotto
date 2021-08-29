@@ -9,6 +9,7 @@ public class LottoUtil {
 
 	public static final int MAX = 45;
 	public static final int MIN = 1;
+	private static Random random = new Random();
 
 	public static List<List<Integer>> createRandomLottoNumbers(int count, int lottoNumberCount) {
 		ArrayList<List<Integer>> lottoGroup = new ArrayList<>();
@@ -19,7 +20,6 @@ public class LottoUtil {
 	}
 
 	private static List<Integer> createLottoNumber(int lottoNumberCount) {
-		Random random = new Random();
 		ArrayList<Integer> lotto = new ArrayList<>();
 		for (int i = 0; i < lottoNumberCount; ) {
 			int number = random.nextInt(MAX) + MIN;

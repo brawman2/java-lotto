@@ -21,15 +21,21 @@ public class LottoNumbers {
 		}
 
 		Set<Integer> union = new HashSet<>();
-		numbers.forEach(number -> union.add(number));
+		numbers.addAll(numbers);
 		if (union.size() != numbers.size()) {
 			throw new IllegalArgumentException(HAVE_SAME_NUMBER);
 		}
-		this.numbers = numbers.stream().map(number -> new LottoNumber(number)).collect(Collectors.toList());
+		this.numbers = numbers
+			.stream()
+			.map(LottoNumber::new)
+			.collect(Collectors.toList());
 	}
 
 	public int matchedCount(LottoNumbers other) {
-		return (int)this.numbers.stream().filter((number -> other.contains(number))).count();
+		return (int)this.numbers
+			.stream()
+			.filter(other::contains)
+			.count();
 	}
 
 	private boolean contains(LottoNumber number) {

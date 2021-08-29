@@ -22,8 +22,9 @@ public class LottoReport {
 	public double profit() {
 		int totalProfit = ranks
 			.stream()
-			.map(rank -> rank.reward())
-			.collect(Collectors.summingInt(Integer::intValue));
+			.map(LottoRank::reward)
+			.mapToInt(Integer::intValue)
+			.sum();
 		int totalPaid = this.ranks.size() * this.lottoPrice;
 		return (double)totalProfit / (double)totalPaid;
 	}
