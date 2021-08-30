@@ -6,17 +6,14 @@ import java.util.stream.Collectors;
 public class LottoGroup {
 	private final List<Lotto> lottoGroup;
 
+	public LottoGroup(List<Lotto> lottoGroup) {
+		this.lottoGroup = lottoGroup;
+	}
+
 	public LottoGroup(List<List<Integer>> lottoNumbers) {
 		this.lottoGroup = lottoNumbers
 			.stream()
 			.map(list -> new Lotto(list))
-			.collect(Collectors.toList());
-	}
-
-	public LottoGroup(List<List<Integer>> lottoNumbers, int lottoPrice, int lottoNumberCount) {
-		this.lottoGroup = lottoNumbers
-			.stream()
-			.map(list -> new Lotto(list, lottoPrice, lottoNumberCount))
 			.collect(Collectors.toList());
 	}
 

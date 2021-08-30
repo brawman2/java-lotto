@@ -1,5 +1,6 @@
 package ui;
 
+import lotto.LottoRank;
 import lotto.LottoReport;
 
 public class ResultView {
@@ -17,10 +18,10 @@ public class ResultView {
 	public void drawResult(LottoReport lottoResultReport) {
 		System.out.println(STATISTICS);
 		System.out.println(LINE);
-		System.out.println(INTRO_OF_THREE_MATCHED +lottoResultReport.fourthPlace()+ count);
-		System.out.println(INTRO_OF_FOUR_MATCHED +lottoResultReport.thirdPlace()+count);
-		System.out.println(INTRO_OF_FIX_MATCHED +lottoResultReport.secondPlace()+count);
-		System.out.println(INTRO_OF_SIX_MATCHED +lottoResultReport.firstPlace()+count);
+		System.out.println(INTRO_OF_THREE_MATCHED +lottoResultReport.countByLottoRank(LottoRank.FOURTH)+ count);
+		System.out.println(INTRO_OF_FOUR_MATCHED +lottoResultReport.countByLottoRank(LottoRank.THIRD)+count);
+		System.out.println(INTRO_OF_FIX_MATCHED +lottoResultReport.countByLottoRank(LottoRank.SECOND)+count);
+		System.out.println(INTRO_OF_SIX_MATCHED +lottoResultReport.countByLottoRank(LottoRank.FIRST)+count);
 		System.out.println(TOTAL + Math.floor(lottoResultReport.profit() * 100) / 100.0 + END);
 	}
 }

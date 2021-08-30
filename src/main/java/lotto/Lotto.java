@@ -1,7 +1,6 @@
 package lotto;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Lotto {
 	public static final int DEFAULT_PRICE = 1000;

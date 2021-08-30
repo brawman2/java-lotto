@@ -1,6 +1,7 @@
 package lotto;
 
 import java.util.Objects;
+import java.util.function.Function;
 
 public class LottoNumber {
 	public static final String INVALID_NUMBER_SCOPE = "범위를 벗어났습니다.";
@@ -10,6 +11,13 @@ public class LottoNumber {
 
 	public LottoNumber(int number) {
 		if (number < MIN || number > MAX) {
+			throw new IllegalArgumentException(INVALID_NUMBER_SCOPE);
+		}
+		this.number = number;
+	}
+
+	public LottoNumber(int number, Function<Integer, Boolean> isCorrect) {
+		if (isCorrect.apply(number)) {
 			throw new IllegalArgumentException(INVALID_NUMBER_SCOPE);
 		}
 		this.number = number;
